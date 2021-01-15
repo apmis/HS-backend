@@ -10,7 +10,7 @@
   ],
   "author": {
     "name": "",
-    "email": ""
+    "email": "simpa@dania.com"
   },
   "contributors": [],
   "bugs": {},
@@ -48,10 +48,16 @@
     "@feathersjs/transport-commons": "^4.5.11",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
+    "feathers-authentication-management": "^3.0.1",
+    "feathers-hooks-common": "^5.0.4",
+    "feathers-mailer": "^3.0.1",
     "feathers-mongoose": "^8.3.1",
     "helmet": "^4.3.1",
+    "install": "^0.13.0",
     "mongodb-core": "^3.2.7",
     "mongoose": "^5.11.10",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "npm": "^6.14.11",
     "serve-favicon": "^2.5.0",
     "winston": "^3.3.3"
   },

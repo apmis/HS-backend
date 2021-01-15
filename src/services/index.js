@@ -9,6 +9,9 @@ const workspace = require('./workspace/workspace.service.js');
 const roaster = require('./roaster/roaster.service.js');
 const deptUnit = require('./dept-unit/dept-unit.service.js');
 const billing = require('./billing/billing.service.js');
+const mailer = require('./mailer/mailer.service.js');
+const authmanagement = require('./authmanagement/authmanagement.service.js');
+//const authMgt = require('./auth-mgt/auth-mgt.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
   app.configure(users);
@@ -22,4 +25,7 @@ module.exports = function (app) {
   app.configure(roaster);
   app.configure(deptUnit);
   app.configure(billing);
+  app.configure(mailer);
+  //app.configure(authMgt);
+  app.configure(authmanagement);
 };
