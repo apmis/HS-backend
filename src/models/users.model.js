@@ -11,6 +11,7 @@ module.exports = function (app) {
     phone: { type: String },
     email: { type: String, unique: true, lowercase: true },
     password: { type: String },
+    stacker: { type: Boolean, default: false },
     isVerified: { type: Boolean },
     verifyToken: { type: String },
     verifyExpires: { type: Date },

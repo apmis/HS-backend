@@ -6,6 +6,8 @@ const {
   hashPassword, protect
 } = require('@feathersjs/authentication-local').hooks;
 
+const getEmployeeData = require('../../hooks/get-employee-data');
+
 module.exports = {
   before: {
     all: [],
@@ -23,8 +25,8 @@ module.exports = {
       // Always must be the last hook
       protect('password')
     ],
-    find: [],
-    get: [],
+    find: [], //getEmployeeData
+    get: [getEmployeeData()],
     create: [ /* context => {
       accountService(context.app).notifier('resendVerifySignup', context.result)
     },
