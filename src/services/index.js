@@ -11,6 +11,7 @@ const deptUnit = require('./dept-unit/dept-unit.service.js');
 const billing = require('./billing/billing.service.js');
 const mailer = require('./mailer/mailer.service.js');
 const authmanagement = require('./authmanagement/authmanagement.service.js');
+const products = require('./products/products.service.js');
 //const authMgt = require('./auth-mgt/auth-mgt.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
@@ -28,4 +29,5 @@ module.exports = function (app) {
   app.configure(mailer);
   //app.configure(authMgt);
   app.configure(authmanagement);
+  app.configure(products);
 };
