@@ -1,21 +1,17 @@
-// billing-model.js - A mongoose model
+// productbatch-model.js - A mongoose model
 // 
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 module.exports = function (app) {
-  const modelName = 'billing';
+  const modelName = 'productbatch';
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const schema = new Schema({
-    service: { type: String, required: true },
-    category: { type: String, required: true },
-    productId: { type: String, required: true },
-    facility:{ type: String, required: true },
-    
-    //contracts:[array]
-    source_org:{ type: String, required: true },
-    dest_org:{ type: String, required: true },
-    price:{ type: String, required: true },
+              batchno:{ type:String,},   
+              qtty:{ type:String, }, 
+              expirydate:{ type:String,},
+              productId:{type: Schema.Types.ObjectId},
+              inventoryId:{type: Schema.Types.ObjectId}
   }, {
     timestamps: true
   });
