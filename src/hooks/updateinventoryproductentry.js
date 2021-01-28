@@ -5,7 +5,7 @@
 module.exports = (options = {}) => {
   return async context => {
     const inventServ=context.app.service('inventory')
-    console.log(context.result)
+    //console.log(context.result)
     context.result.productitems.forEach( async element => {
        const exist= await inventServ.find({
          query:{
@@ -17,6 +17,7 @@ module.exports = (options = {}) => {
        console.log (exist)
        if (exist.data.length){
          try{
+           if (context.result.transactioncategory==="credit"){
          await inventServ.patch(exist.data[0]._id,
           {
             quantity:exist.data[0].quantity+element.quantity,
@@ -24,13 +25,23 @@ module.exports = (options = {}) => {
             costprice:(exist.data[0].stockvalue+element.amount)/(exist.data[0].quantity+element.quantity)
           })
           console.log("product exist, updated datapoints")
+        }else{
+          await inventServ.patch(exist.data[0]._id,
+            {
+              quantity:exist.data[0].quantity-element.quantity,
+              stockvalue:exist.data[0].stockvalue-(element.quantity*element.costprice)   //element.amount,
+              //costprice:(exist.data[0].stockvalue+element.amount)/(exist.data[0].quantity+element.quantity)
+            })
+          
+
+        }
         }catch(err){
           console.log(err)
         }
 
        }else{
          try{
-        await inventServ.create({
+       const invent= await inventServ.create({
           facility: context.result.facility,
           storeId:context.result.storeId,
           productId:element.productId, 
@@ -48,6 +59,35 @@ module.exports = (options = {}) => {
           batches:[]
          })
          console.log("product does not exist, created datapoints")
+      // //create service (first class citizen)
+    
+    
+    const bill= await context.app.service('billing').create({
+      name:element.name,
+      facility:  context.result.facility,
+      productId: element.productId,
+      baseunit: element.baseunit,
+      inventoryId:invent._id, 
+      serviceId: null,
+      service_name: "",
+      category: "Inventory",
+      facilityname:"",
+     
+      contracts:[
+        {   // contracts that contain different pricing ie insurance etc
+      source_org:context.result.facility ,
+      source_org_name:"",
+      dest_org:context.result.facility ,
+      dest_org_name:"",
+      price:0}]
+
+    })
+
+    await inventServ.patch(
+      invent._id,
+      {billingId:bill._id}
+      )
+  
        }catch(err){
         console.log(err)
       }

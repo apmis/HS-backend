@@ -7,15 +7,29 @@ module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const schema = new Schema({
-    service: { type: String, required: true },
-    category: { type: String, required: true },
-    productId: { type: String, required: true },
-    facility:{ type: String, required: true },
-    
-    //contracts:[array]
-    source_org:{ type: String, required: true },
-    dest_org:{ type: String, required: true },
-    price:{ type: String, required: true },
+    name:{ type: String },
+    service: { type: String },
+    category: { type: String },
+    productId: { type: Schema.Types.ObjectId},
+    facility:{ type: Schema.Types.ObjectId },
+    baseunit:{ type: String },
+    inventoryId:{type: Schema.Types.ObjectId}, 
+    serviceId: {type: Schema.Types.ObjectId},
+    service_name:{ type: String },
+    facilityname:{ type: String },
+
+    contracts:[{
+    source_org:{ type: Schema.Types.ObjectId }, //writer -NHIS,HMO
+    dest_org:{ type: Schema.Types.ObjectId }, //consumer-facility
+    price:{ type: Number },
+    source_org_name:{ type: String },
+    dest_org_name:{ type: String },
+    modifier:[{
+      tag:{ type: String }, 
+      price:{type: Number}, 
+      variation:{type: String}
+      }]
+    }]
   }, {
     timestamps: true
   });

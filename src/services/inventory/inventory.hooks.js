@@ -1,6 +1,6 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 const {populate} = require('feathers-hooks-common');
- 
+
 const inventorySchema = {
   include:[ {
     service: 'products',
@@ -22,6 +22,7 @@ const inventorySchema = {
   } */
   ],
 }
+const createservicefrominventory = require('../../hooks/createservicefrominventory');
 //populate({schema:doctorCitizenSchema})
 
 module.exports = {
@@ -39,7 +40,7 @@ module.exports = {
     all: [populate({schema:inventorySchema})],
     find: [],
     get: [],
-    create: [],
+    create: [createservicefrominventory()],
     update: [],
     patch: [],
     remove: []

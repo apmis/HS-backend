@@ -15,6 +15,7 @@ module.exports = function (app) {
     source: { type: String },
     totalamount: { type:Number, required: true },
     createdby: { type: Schema.Types.ObjectId},
+    transactioncategory: { type: String, required: true }, //credit=entry , debit=exit
     productitems:[{
       costprice: { type:Number, required: true },
       sellingprice: { type:Number, },
