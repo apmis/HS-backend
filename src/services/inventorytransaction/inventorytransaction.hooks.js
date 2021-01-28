@@ -1,7 +1,5 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 
-const updatelocalprice = require('../../hooks/updatelocalprice');
-
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
@@ -17,9 +15,9 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [updatelocalprice()],
-    update: [updatelocalprice()],
-    patch: [updatelocalprice()],
+    create: [],
+    update: [],
+    patch: [],
     remove: []
   },
 
