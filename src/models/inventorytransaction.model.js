@@ -17,7 +17,7 @@ module.exports = function (app) {
     transactioncategory: { type: String, required: true }, //credit=entry , debit=exit
     inventoryId:{ type: String, required: true },
     productentryId:{ type: String, required: true },
-    costprice: { type:Number, required: true },
+    costprice: { type:Number,  },
     sellingprice: { type:Number, },
     quantity: { type: Number, required: true },
     productId: { type: Schema.Types.ObjectId, ref:'product'  },
