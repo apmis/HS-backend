@@ -62,7 +62,7 @@ module.exports = function (app) {
       }],
 
       hmoCover:{ type:Boolean, default:false },
-      hmoDetail:[{
+      hmoDetails:[{
       hmoPrincipal:{ type: Schema.Types.ObjectId,ref:'client' },
       hmo:{ type: Schema.Types.ObjectId,ref:'facility' },
       hmoPlan:{ type: String },

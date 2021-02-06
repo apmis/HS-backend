@@ -17,6 +17,11 @@ const productbatch = require('./productbatch/productbatch.service.js');
 const productentry = require('./productentry/productentry.service.js');
 const inventorytransaction = require('./inventorytransaction/inventorytransaction.service.js');
 const client = require('./client/client.service.js');
+const documentation = require('./documentation/documentation.service.js');
+const episodeOfCare = require('./episode-of-care/episode-of-care.service.js');
+const encounter = require('./encounter/encounter.service.js');
+const documentclass = require('./documentclass/documentclass.service.js');
+const clinicaldocument = require('./clinicaldocument/clinicaldocument.service.js');
 //const authMgt = require('./auth-mgt/auth-mgt.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
@@ -40,4 +45,9 @@ module.exports = function (app) {
   app.configure(productentry);
   app.configure(inventorytransaction);
   app.configure(client);
+  app.configure(documentation);
+  app.configure(episodeOfCare);
+  app.configure(encounter);
+  app.configure(documentclass);
+  app.configure(clinicaldocument);
 };
