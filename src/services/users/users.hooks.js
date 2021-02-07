@@ -26,7 +26,7 @@ module.exports = {
       protect('password')
     ],
     find: [], //getEmployeeData
-    get: [getEmployeeData()],
+    get: [], // getEmployeeData()
     create: [ /* context => {
       accountService(context.app).notifier('resendVerifySignup', context.result)
     },
