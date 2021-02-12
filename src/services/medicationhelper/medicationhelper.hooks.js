@@ -1,13 +1,13 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 
-
+const uniquehelpers = require('../../hooks/uniquehelpers');
 
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
     find: [],
     get: [],
-    create: [],
+    create: [uniquehelpers()],
     update: [],
     patch: [],
     remove: []

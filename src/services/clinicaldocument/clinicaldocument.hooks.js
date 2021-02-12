@@ -1,5 +1,5 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
-
+const prescriptionderivatives = require('../../hooks/prescriptionderivatives');
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
@@ -15,7 +15,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [prescriptionderivatives()],
     update: [],
     patch: [],
     remove: []
