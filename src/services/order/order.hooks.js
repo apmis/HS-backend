@@ -1,5 +1,7 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 
+const groupOrderbyClient = require('../../hooks/group-orderby-client');
+
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
@@ -13,7 +15,7 @@ module.exports = {
 
   after: {
     all: [],
-    find: [],
+    find: [groupOrderbyClient()],
     get: [],
     create: [],
     update: [],

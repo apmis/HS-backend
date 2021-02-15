@@ -4,7 +4,8 @@
 // eslint-disable-next-line no-unused-vars
 module.exports = (options = {}) => {
   return async context => {
-    console.log(context.result);
+   // console.log(context.result);
+   //console.log("context.data==",context.data)
     if(context.data.documentname==="Prescription"){
  
     const orderServ=context.app.service('order')
@@ -21,9 +22,10 @@ module.exports = (options = {}) => {
           order_category:"Prescription",
           order: element.medication,
           instruction:element.instruction,
-         // destination: element.destination.facility._id||null,
+          destination_name: element.destination,
+          destination:element.destinationId,
          // destination_location:  element.destination.location._id||null, 
-         // destination_name: element.destination.facility.name||"",
+         
          // destination_location_name: element.destination.location.name||"",
 
          // fulfilled:{ type: Boolean, default: false },
@@ -39,7 +41,9 @@ module.exports = (options = {}) => {
           requestingdoctor_facilityname:context.data.facilityname,
           //userid?employeeId
           clientId: context.data.client,
-          
+          clientname:context.data.clientname,
+          client:context.data.clientobj,
+          //client:{type: Schema.Types.Mixed},
           order_action:[],
           medication_action:[],
           treatment_action:[]

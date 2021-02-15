@@ -11,7 +11,7 @@ module.exports = function (app) {
     order_category: { type: String, },
     order: { type: String, required: true },
     instruction: { type: String,  },
-    destination: {type: Schema.Types.ObjectId, ref:"facility"},
+    destination: {type: Schema.Types.ObjectId}, //full facility object
     destination_location: {type: Schema.Types.ObjectId, ref:"location"},
     destination_name: { type: String, },
     destination_location_name: { type: String, },
@@ -31,7 +31,9 @@ module.exports = function (app) {
     requestingdoctor_facilityId:{type: Schema.Types.ObjectId, ref:"facility" },
     requestingdoctor_facilityname:{type: String} ,
     clientId: {type: Schema.Types.ObjectId, required: true },
-    
+    clientname:{type: String} ,
+    client:{type: Schema.Types.Mixed},
+
     order_action:[
       {actormname:{type: String} , 
       actorId:{type: Schema.Types.ObjectId} , 
