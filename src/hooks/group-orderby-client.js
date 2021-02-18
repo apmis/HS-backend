@@ -19,7 +19,8 @@ module.exports = (options = {}) => {
          const orderGroup={
           client_id:JSON.parse(arr),
           clientname:myOrder[0].clientname,
-          orders:myOrder
+          orders:myOrder,
+        
         }
        // console.log(orderGroup)
         orderArray.push(orderGroup) 
