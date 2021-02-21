@@ -1,13 +1,13 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 
-const createorderbillhelper = require('../../hooks/createorderbillhelper');
+const orderbillhelper = require('../../hooks/orderbillhelper');
 
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
     find: [],
     get: [],
-    create: [],
+    create: [orderbillhelper()],
     update: [],
     patch: [],
     remove: []
@@ -17,7 +17,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [createorderbillhelper()],
+    create: [],
     update: [],
     patch: [],
     remove: []

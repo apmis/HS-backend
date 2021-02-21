@@ -14,9 +14,15 @@ module.exports = function (app) {
     facility:{ type: Schema.Types.ObjectId },
     baseunit:{ type: String },
     inventoryId:{type: Schema.Types.ObjectId}, 
-    serviceId: {type: Schema.Types.ObjectId},
+    serviceId: {type: Schema.Types.ObjectId},//billing is either a service or a product
     service_name:{ type: String },
     facilityname:{ type: String },
+    panel:{ type: Boolean, default: false },
+    panelServices:[{
+      serviceId: {type: Schema.Types.ObjectId},
+      service_name:{ type: String },
+    }],
+
 
     contracts:[{
     source_org:{ type: Schema.Types.ObjectId }, //writer -NHIS,HMO

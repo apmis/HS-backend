@@ -24,7 +24,7 @@ module.exports = function (app) {
       name: { type: String },
       baseunit: { type: String },
       amount:{ type: Number, required: true },
-      serviceId:{ type: Schema.Types.ObjectId, ref:'service'},
+      serviceId:{ type: Schema.Types.ObjectId, ref:'billing'},
       createdby: { type: Schema.Types.ObjectId },
     }]
   }, {

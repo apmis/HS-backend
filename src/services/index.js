@@ -30,6 +30,7 @@ const medicationhelper = require('./medicationhelper/medicationhelper.service.js
 const task = require('./task/task.service.js');
 const problem = require('./problem/problem.service.js');
 const bills = require('./bills/bills.service.js');
+const orderbillhelper = require('./orderbillhelper/orderbillhelper.service.js');
 //const authMgt = require('./auth-mgt/auth-mgt.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
@@ -66,4 +67,5 @@ module.exports = function (app) {
   app.configure(task);
   app.configure(problem);
   app.configure(bills);
+  app.configure(orderbillhelper);
 };
