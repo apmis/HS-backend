@@ -50,6 +50,7 @@ module.exports = function (app) {
       familyCover:{ type:Boolean, default:false },
       familyDetails:{
         familyPrincipal:{ type: Schema.Types.ObjectId,ref:'client' },
+        familyName:{ type: Boolean },
         active:{ type: Boolean }
       },
 
@@ -57,6 +58,7 @@ module.exports = function (app) {
       companyDetails:[{
       companyPrincipal:{ type: Schema.Types.ObjectId,ref:'client' },
       company:{ type: Schema.Types.ObjectId,ref:'facility' },
+      companyName:{ type: String },
       companyPlan:{ type: String },
       active:{ type: Boolean }
       }],
@@ -65,6 +67,7 @@ module.exports = function (app) {
       hmoDetails:[{
       hmoPrincipal:{ type: Schema.Types.ObjectId,ref:'client' },
       hmo:{ type: Schema.Types.ObjectId,ref:'facility' },
+      hmoName:{ type: String },
       hmoPlan:{ type: String },
       active:{ type: Boolean },
       }]

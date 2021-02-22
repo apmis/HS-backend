@@ -8,13 +8,13 @@ const inventorySchema = {
     parentField: 'productId',
     childField: '_id'
   },
-  /* {
-    service: 'doctor',
-    nameAs: 'referredDocDetails',
-    parentField: 'doc_referred_to',
-    childField: 'userID'
+ {
+    service: 'billing',
+    nameAs: 'billingDetails',
+    parentField: 'billingId',
+    childField: '_id'
   }, 
-  {
+    /*{
     service: 'doctor',
     nameAs: 'DocDetails',
     parentField: 'doctor',

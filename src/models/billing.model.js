@@ -10,13 +10,16 @@ module.exports = function (app) {
     name:{ type: String },
     service: { type: String },
     category: { type: String },
-    productId: { type: Schema.Types.ObjectId},
     facility:{ type: Schema.Types.ObjectId },
+    facilityname:{ type: String },
+
+    productId: { type: Schema.Types.ObjectId},
     baseunit:{ type: String },
     inventoryId:{type: Schema.Types.ObjectId}, 
+
     serviceId: {type: Schema.Types.ObjectId},//billing is either a service or a product
     service_name:{ type: String },
-    facilityname:{ type: String },
+  
     panel:{ type: Boolean, default: false },
     panelServices:[{
       serviceId: {type: Schema.Types.ObjectId},
@@ -30,6 +33,8 @@ module.exports = function (app) {
     price:{ type: Number },
     source_org_name:{ type: String },
     dest_org_name:{ type: String },
+    comments:{ type: String },
+    plan:{ type: String },
     modifier:[{
       tag:{ type: String }, 
       price:{type: Number}, 
