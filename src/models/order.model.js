@@ -8,7 +8,7 @@ module.exports = function (app) {
   const { Schema } = mongooseClient;
   const schema = new Schema({
     documentationId:{type: Schema.Types.ObjectId} , 
-    order_category: { type: String, },
+    order_category: { type: String, required: true },
     order: { type: String, required: true },
     instruction: { type: String,  },
     destination: {type: Schema.Types.ObjectId}, //full facility object

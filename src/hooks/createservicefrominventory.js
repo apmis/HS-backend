@@ -5,6 +5,7 @@
 module.exports = (options = {}) => {
   return async context => {
     console.log(context.result)
+    //everything required to create service from inventory was in the inventory object already
 
    
 

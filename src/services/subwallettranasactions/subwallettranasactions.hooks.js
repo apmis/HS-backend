@@ -1,10 +1,6 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 
-const createorderbillhelper = require('../../hooks/createorderbillhelper');
-
-const groupbillbyclient = require('../../hooks/groupbillbyclient');
-
-const updateorderfrompayment = require('../../hooks/updateorderfrompayment');
+const updatesubwallet = require('../../hooks/updatesubwallet');
 
 module.exports = {
   before: {
@@ -19,11 +15,11 @@ module.exports = {
 
   after: {
     all: [],
-    find: [groupbillbyclient()],
+    find: [],
     get: [],
-    create: [createorderbillhelper()],
+    create: [updatesubwallet()],
     update: [],
-    patch: [updateorderfrompayment()],
+    patch: [],
     remove: []
   },
 

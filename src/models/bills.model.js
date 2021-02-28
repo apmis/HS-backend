@@ -36,7 +36,7 @@ module.exports = function (app) {
       paymentmode:{ type: Schema.Types.Mixed }
     },
     createdBy:{ type: Schema.Types.ObjectId },
-    billing_status: { type: String, default: "unpaid", required: true}, //unpaid,partially paid, fully paid, waived, cancel,suspend
+    billing_status: { type: String, default: "Unpaid", required: true}, //unpaid,partially paid, fully paid, waived, cancel,suspend
   }, {
     timestamps: true
   });

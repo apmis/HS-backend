@@ -31,6 +31,11 @@ const task = require('./task/task.service.js');
 const problem = require('./problem/problem.service.js');
 const bills = require('./bills/bills.service.js');
 const orderbillhelper = require('./orderbillhelper/orderbillhelper.service.js');
+const wallet = require('./wallet/wallet.service.js');
+const wallettransaction = require('./wallettransaction/wallettransaction.service.js');
+const subwallet = require('./subwallet/subwallet.service.js');
+const subwallettranasactions = require('./subwallettranasactions/subwallettranasactions.service.js');
+const subwallettransactions = require('./subwallettransactions/subwallettransactions.service.js');
 //const authMgt = require('./auth-mgt/auth-mgt.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
@@ -68,4 +73,9 @@ module.exports = function (app) {
   app.configure(problem);
   app.configure(bills);
   app.configure(orderbillhelper);
+  app.configure(wallet);
+  app.configure(wallettransaction);
+  app.configure(subwallet);
+  app.configure(subwallettranasactions);
+  app.configure(subwallettransactions);
 };

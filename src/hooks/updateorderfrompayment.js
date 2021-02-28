@@ -2,14 +2,11 @@
 // For more information on hooks see: http://docs.feathersjs.com/api/hooks.html
 
 // eslint-disable-next-line no-unused-vars
-module.exports = (options = {}) => { //create bill from order
+module.exports = (options = {}) => {
   return async context => {
-    if(!!context.data.billInfo){
-      const billServ=context.app.service('bills')
-     await billServ.create(context.data.billInfo)
-      
+    //update order status from payment action
+    //should have a complimentary update payment from order action
 
-    }
     return context;
   };
 };
