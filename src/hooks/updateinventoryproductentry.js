@@ -6,7 +6,10 @@ module.exports = (options = {}) => {
   return async context => {
     const inventServ=context.app.service('inventory')
     const transServ= context.app.service('inventorytransaction')
-    //console.log(context.result)
+  
+
+    /* console.log(context.result)
+    console.log(context.data) */
     context.result.productitems.forEach( async element => {
       //find if item exist in inventory
        const exist= await inventServ.find({
@@ -33,12 +36,14 @@ module.exports = (options = {}) => {
 
             }else{
               console.log("debit")
+              const cp=exist.data[0].stockvalue/exist.data[0].quantity
               await inventServ.patch(exist.data[0]._id,
                 {
                 
                   quantity:exist.data[0].quantity-element.quantity,
-                  stockvalue:exist.data[0].stockvalue-(element.quantity*Number(element.costprice))   //element.amount,
+                  stockvalue:exist.data[0].stockvalue-(element.quantity*Number(cp))   //element.amount,
                   //costprice:(exist.data[0].stockvalue+element.amount)/(exist.data[0].quantity+element.quantity)
+
                 })
               
 

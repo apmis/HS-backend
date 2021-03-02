@@ -16,7 +16,7 @@ module.exports = function (app) {
     destination_name: { type: String, },
     destination_location_name: { type: String, },
 
-    fulfilled:{ type: Boolean, default: false },
+    fulfilled:{ type: String, default: "False" }, //False, Partly, True
     destination_fulfill: {type: Schema.Types.ObjectId, ref:"facility" },
 
     order_status: { type: String, default: "Pending", required: true}, //result ready => state of the order--->financial&admin

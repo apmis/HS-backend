@@ -2,6 +2,8 @@ const { authenticate } = require('@feathersjs/authentication').hooks;
 
 const updateinventoryproductentry = require('../../hooks/updateinventoryproductentry');
 
+const updatebillandorder = require('../../hooks/updatebillandorder');
+
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
@@ -17,7 +19,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [updateinventoryproductentry()],
+    create: [updateinventoryproductentry(), updatebillandorder()],
     update: [],
     patch: [],
     remove: []
