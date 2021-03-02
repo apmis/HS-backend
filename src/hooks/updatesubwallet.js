@@ -7,6 +7,7 @@ module.exports = (options = {}) => {
 
     const subwalletServ=context.app.service('subwallet')
     const transServ= context.app.service('subwallettransactions')
+    const transWalletServ= context.app.service('wallettransaction')
 
     //check if subwallet exist
       //if exist : update subwallet
@@ -19,8 +20,22 @@ module.exports = (options = {}) => {
           organization:context.result.organization
         }
       })
-console.log("exist", exist)
+    //console.log("exist", exist)
       if (exist.data.length){  // update wallet of hospital
+        if(context.result.category==="credit"){ 
+        const deposit= await subwalletServ.patch( exist.data[0]._id,{
+          amount:Number( exist.data[0].amount) + Number(context.result.amount)
+        })
+        const walletinfo=context.result
+        walletinfo.subwallet=exist.data[0]._id
+        const updatewallet= await transWalletServ.create(walletinfo)
+       // const updatewallet= transWalletServ.create() 
+      }
+        else{
+          const deposit= await subwalletServ.patch(exist.data[0]._id,{
+            amount:Number( exist.data[0].amount) - Number(context.result.amount)
+          })
+        }
         //update
       }else{
       //create
@@ -35,16 +50,16 @@ console.log("exist", exist)
           clientName:context.result.fromName
         }
 
- const deposit=     await subwalletServ.create(obj)
-        console.log(deposit)
+      const deposit= await subwalletServ.create(obj)
+      //  console.log(deposit)
+      //update wallet
+      const walletinfo=context.result
+        walletinfo.subwallet=deposit._id
+        const updatewallet= await transWalletServ.create(walletinfo)
 
       }
 
-
-
-
-
-
+    
     return context;
   };
 };

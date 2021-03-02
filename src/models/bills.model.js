@@ -27,7 +27,19 @@ module.exports = function (app) {
       billingId:{ type: Schema.Types.ObjectId, ref:'billing'},
       createdby: { type: Schema.Types.ObjectId },
     },
-    paymentInfo:{},
+    paymentInfo:{
+      amountDue:{ type:Number, },
+      paidup:{ type:Number, default:0}, //total part payment
+      balance:{ type:Number, }, //oustanding balance for part payment
+      amountpaid:{ type:Number,default:0 }, //amount paid just now
+      paymentDetails:[{
+        amount:{ type:Number},
+        type:{ type: String},
+        date:{type: Date},
+        subwallet:{ type: Schema.Types.ObjectId, ref:'subwallet'  }
+      }]
+
+    },
     participantInfo:{
       billingFacility:{ type: Schema.Types.ObjectId },
       locationId: { type: Schema.Types.ObjectId, ref:'location'  },

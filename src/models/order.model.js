@@ -19,9 +19,9 @@ module.exports = function (app) {
     fulfilled:{ type: Boolean, default: false },
     destination_fulfill: {type: Schema.Types.ObjectId, ref:"facility" },
 
-    order_status: { type: String, default: "Pending", required: true}, //result ready => state of the order
-    treatment_status: { type: String, default: "Pending", required: true}, //=>state of treatment
-    medication_status: { type: String, default: "Pending", required: true}, //=>state of medication
+    order_status: { type: String, default: "Pending", required: true}, //result ready => state of the order--->financial&admin
+    treatment_status: { type: String, default: "Pending", required: true}, //=>state of treatment --->inpatient care
+    medication_status: { type: String, default: "Pending", required: true}, //=>state of medication--->prescription course;current medication etc
 
     encounter: { type: Schema.Types.ObjectId, },
     requestingdoctor_Id: { type: Schema.Types.ObjectId, required: true }, //userid?employeeId

@@ -1,6 +1,6 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 
-
+const invoicebillpayment = require('../../hooks/invoicebillpayment');
 
 module.exports = {
   before: {
@@ -17,9 +17,9 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [invoicebillpayment()],
     update: [],
-    patch: [],
+    patch: [invoicebillpayment()],
     remove: []
   },
 

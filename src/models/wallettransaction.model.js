@@ -16,7 +16,9 @@ module.exports = function (app) {
     createdby: { type: Schema.Types.ObjectId},
     refBill:[{ type: Schema.Types.ObjectId, ref:'bills'  }], //billid to be paid : ref invoice to pay
     info:{ type: Schema.Types.Mixed},
-    status:{ type: String },
+    paymentmode:{ type: String },
+    category:{ type: String }, //debit/credit
+
     
     facility: { type: Schema.Types.ObjectId, ref:'facility', },
     locationId: { type: Schema.Types.ObjectId, ref:'location'  },

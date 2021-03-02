@@ -1,4 +1,5 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
+const updatewallet = require('../../hooks/updatewallet');
 
 module.exports = {
   before: {
@@ -15,7 +16,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [updatewallet()],
     update: [],
     patch: [],
     remove: []

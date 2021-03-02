@@ -36,6 +36,7 @@ const wallettransaction = require('./wallettransaction/wallettransaction.service
 const subwallet = require('./subwallet/subwallet.service.js');
 const subwallettranasactions = require('./subwallettranasactions/subwallettranasactions.service.js');
 const subwallettransactions = require('./subwallettransactions/subwallettransactions.service.js');
+const invoice = require('./invoice/invoice.service.js');
 //const authMgt = require('./auth-mgt/auth-mgt.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
@@ -78,4 +79,5 @@ module.exports = function (app) {
   app.configure(subwallet);
   app.configure(subwallettranasactions);
   app.configure(subwallettransactions);
+  app.configure(invoice);
 };

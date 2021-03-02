@@ -1,21 +1,24 @@
-// wallet-model.js - A mongoose model
+// invoice-model.js - A mongoose model
 // 
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 module.exports = function (app) {
-  const modelName = 'wallet';
+  const modelName = 'invoice';
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const schema = new Schema({
-    wallet: { type: Schema.Types.ObjectId, ref:'facility', required:true }, 
-    name: { type: String },
-    amount:{ type: Number, required: true },
-    status:{ type: String },
-    entityType:{ type: String }, //client,organization
-   // orgName:{ type: String },
-   // clientName:{ type: String },//
-   // status:{ type: String }
-    //baseunit: { type: String },
+    
+    clientId:{ type: Schema.Types.ObjectId, ref:'client', },//sending money
+    client:{ type: Schema.Types.Mixed},
+    clientName:{ type: String },
+    facilityId:{ type: Schema.Types.ObjectId, ref:'facility', },
+    invoiceNo:{ type: String },
+    totalamount:{ type: Number , required:true},
+    createdby: { type: Schema.Types.ObjectId},
+    status:{ type: String }, //billid to be paid : ref invoice to pay
+    bills:[{ type: Schema.Types.Mixed}],
+    balance:{ type: Number}
+
   }, {
     timestamps: true
   });
