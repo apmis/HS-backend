@@ -118,6 +118,7 @@ module.exports = (options = {}) => {
             source_org_name:"",
             dest_org:context.result.facility ,
             dest_org_name:"",
+            billing_type:"Cash",
             price:0}]
 
           })

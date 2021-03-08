@@ -6,7 +6,10 @@ const hooks = require('./billing.hooks');
 module.exports = function (app) {
   const options = {
     Model: createModel(app),
-    paginate: app.get('paginate'),
+    paginate:{
+      default: 1000,
+      max: 2000
+    }, //app.get('paginate'),
     whitelist:['$options','$regex']
   };
 

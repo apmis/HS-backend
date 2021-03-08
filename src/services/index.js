@@ -34,7 +34,7 @@ const orderbillhelper = require('./orderbillhelper/orderbillhelper.service.js');
 const wallet = require('./wallet/wallet.service.js');
 const wallettransaction = require('./wallettransaction/wallettransaction.service.js');
 const subwallet = require('./subwallet/subwallet.service.js');
-const subwallettranasactions = require('./subwallettranasactions/subwallettranasactions.service.js');
+//const subwallettranasactions = require('./subwallettranasactions/subwallettranasactions.service.js');
 const subwallettransactions = require('./subwallettransactions/subwallettransactions.service.js');
 const invoice = require('./invoice/invoice.service.js');
 //const authMgt = require('./auth-mgt/auth-mgt.service.js');
@@ -77,7 +77,7 @@ module.exports = function (app) {
   app.configure(wallet);
   app.configure(wallettransaction);
   app.configure(subwallet);
-  app.configure(subwallettranasactions);
+ // app.configure(subwallettranasactions);
   app.configure(subwallettransactions);
   app.configure(invoice);
 };
