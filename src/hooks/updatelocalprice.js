@@ -7,7 +7,7 @@ module.exports = (options = {}) => {
     let contractSel
     const inventServ=context.app.service('inventory')
     const service=context.result||context.result.data[0]
-   
+   if (!!service.inventoryId){
      service.contracts.forEach(e=>{
     //  if(e.source_org===e.dest_org){
       
@@ -26,7 +26,7 @@ module.exports = (options = {}) => {
      inventServ.patch(service.inventoryId, {
       sellingprice:contractSel.price
     })
-
+  }
     return context;
   };
 };

@@ -29,6 +29,7 @@ module.exports = function (app) {
     }],
 
    createdBy:{ type: Schema.Types.ObjectId },
+   updatedBy:{ type: Schema.Types.ObjectId },
     contracts:[{
     source_org:{ type: Schema.Types.ObjectId }, //writer -NHIS,HMO (NHIS is a plan though)
     source_org_name:{ type: String },
