@@ -9,11 +9,11 @@ module.exports = (options = {}) => {
     if (!context.params.query.clientId ){
      // console.log("groupme")
       let orderArray=[]
-      const uniqueArr = await [... new Set(context.result.data.map(data => JSON.stringify(data.participantInfo.clientId)))]
+      const uniqueArr = await [... new Set(context.result.data.map(data => JSON.stringify(data.participantInfo.paymentmode.detail.principal)))]  //data.participantInfo.clientId
      // console.log(uniqueArr)
       uniqueArr.forEach( async arr=>{
           //get all orders for client
-          let myOrder= await context.result.data.filter(data=>JSON.stringify(data.participantInfo.clientId)===arr)
+          let myOrder= await context.result.data.filter(data=>JSON.stringify(data.participantInfo.paymentmode.detail.principal)===arr)  //data.participantInfo.clientId
           // console.log(myOrder)
         //  console.log(JSON.parse(arr))
           let catArray=[]
@@ -21,7 +21,7 @@ module.exports = (options = {}) => {
        //   console.log(uniqueCat)
         // group all clients orders by order category
           uniqueCat.forEach( async carr=>{
-          let catOrder= await myOrder.filter(data=>data.orderInfo.orderObj.order_category===carr)
+          let catOrder= await myOrder.filter(data=>data.orderInfo.orderObj.order_category===carr) //filter service info
             const catGroup={
               order:catOrder,
               catName:carr
@@ -32,7 +32,7 @@ module.exports = (options = {}) => {
 
           const orderGroup={
             client_id:JSON.parse(arr),
-            clientname:myOrder[0].orderInfo.orderObj.clientname,
+            clientname:myOrder[0].participantInfo.paymentmode.detail.principalName,   //myOrder[0].orderInfo.orderObj.clientname,
             bills:catArray,
           
           }

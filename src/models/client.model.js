@@ -41,7 +41,24 @@ module.exports = function (app) {
     facility: { type: Schema.Types.ObjectId, ref:'facility', required:true },
     userId: { type: Schema.Types.ObjectId, ref:'users'  },
 
-    paymentinfo:{
+
+    paymentinfo:[
+      {
+        paymentmode:{ type: String,  default:"Cash"},
+        organizationId:{ type: Schema.Types.ObjectId },
+        organizationName:{ type: String,  },
+        principalId:{ type: String,  },
+        clientId:{ type: String,  },
+        principalName:{ type: String,  },
+        plan:{ type: String,  },
+        active:{ type: Boolean,default:true},
+        principal:{ type: Schema.Types.ObjectId, ref:'client' }
+
+
+      }
+    ]
+
+    /* paymentinfo2:{
       cash:{ type:Boolean, default:true },
       cashDetails:{
         cash_balance:{type:Number, default:0}
@@ -70,8 +87,8 @@ module.exports = function (app) {
       hmoName:{ type: String },
       hmoPlan:{ type: String },
       active:{ type: Boolean },
-      }]
-    }
+      }] 
+    }*/
   }, {
     timestamps: true
   });

@@ -40,7 +40,7 @@ module.exports = function (app) {
 
     price:{ type: Number },
     plans:[{ type: String }], 
-   
+    capitation:{type:Boolean, default:false},
     comments:{ type: String },
    
     modifier:[{

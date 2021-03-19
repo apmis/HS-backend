@@ -50,58 +50,6 @@ module.exports = (options = {}) => {
           
     }).then()
     .catch((err)=>console.log(err))
-      
-      //action=accept, decline, fulfill
-   // console.log(prescriptionorder)
-    //create medication-->medication history
-  /*   const medicationlist= await medicationServ.create({
-      medication: element.medication,
-      instruction:element.instruction,
-      requestingdoctor_Id: context.data.createdBy, 
-      requestingdoctor_Name: context.data.createdByname,
-      requestingdoctor_locationid:context.data.locationId,
-      requestingdoctor_locationName:context.data.location,
-      requestingdoctor_facilityId:context.data.facility,
-      requestingdoctor_facilityname:context.data.facilityname,
-      clientId: context.data.client,
-      //status: { type: String, default: "pending", required: true} //pending, started, 
-      medication_action:[
-        /*  {actorname:{type: String} , 
-      actorId:{type: Schema.Types.ObjectId} , 
-      action:{type: String}, 
-      description:{type: String}, 
-      createdat:{type:Date , default:Date.now},   
-         } */
-      /*  ],
-       orderId: prescriptionorder._id
-    })
-
-    console.log(medicationlist) */
-
-    //create treatment sheet--->for 
-    /* const treatmentlist= await treatmentServ.create({
-      order_category: "Prescription",
-      order: element.medication,
-      instruction:element.instruction,
-      requestingdoctor_Id: context.data.createdBy, 
-      requestingdoctor_Name: context.data.createdByname,
-      requestingdoctor_locationid:context.data.locationId,
-      requestingdoctor_locationName:context.data.location,
-      requestingdoctor_facilityId:context.data.facility,
-      requestingdoctor_facilityId:context.data.facilityname,
-      clientId: context.data.client, */
-      //status: { type: String, default: "pending", required: true} //pending, started, 
-    /*   treatment_action:[ */
-        /*  {actorname:{type: String} , 
-      actorId:{type: Schema.Types.ObjectId} , 
-      action:{type: String}, 
-      description:{type: String}, 
-      createdat:{type:Date , default:Date.now},   
-         } */
-      /*  ],
-       orderId: prescriptionorder._id
-    })
-    console.log(treatmentlist)  */
 
     //create medication helper ---->assist documentation
     await medicationhelperServ.create({
