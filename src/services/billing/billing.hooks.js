@@ -17,7 +17,7 @@ module.exports = {
 
   after: {
     all: [],
-    find: [groupservicebycategory()],
+    find: [groupservicebycategory()], //
     get: [],
     create: [updatelocalprice()],
     update: [updatelocalprice()],

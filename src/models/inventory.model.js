@@ -11,7 +11,7 @@ module.exports = function (app) {
     //userId: { type: Schema.Types.ObjectId, ref:'users'  },
     storeId: { type: Schema.Types.ObjectId, ref:'location'  },
     productId: { type: Schema.Types.ObjectId, ref:'product'  },
-    billingId:{ type: Schema.Types.ObjectId, ref:'billing'},
+    billingId:{ type: Schema.Types.ObjectId, /* ref:'billing' */},
     name: { type: String },
     //baseunit: { type: String },
     quantity: { type: Number, required: true },
