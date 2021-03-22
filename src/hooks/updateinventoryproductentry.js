@@ -19,7 +19,7 @@ module.exports = (options = {}) => {
            facility:context.result.facility
          }
        })
-       console.log(exist.data.length)
+      // console.log(exist.data.length)
       // if it does, update the details basedo n the transaction category
       if (exist.data.length){
          try{
@@ -30,12 +30,12 @@ module.exports = (options = {}) => {
                       stockvalue:exist.data[0].stockvalue+element.amount,
                       costprice:(exist.data[0].stockvalue+element.amount)/(exist.data[0].quantity+element.quantity)
                     })
-              console.log("product exist, updated datapoints")
+            //  console.log("product exist, updated datapoints")
               // write transaction
               
 
             }else{
-              console.log("debit")
+            //  console.log("debit")
               const cp=exist.data[0].stockvalue/exist.data[0].quantity
               await inventServ.patch(exist.data[0]._id,
                 {
@@ -48,7 +48,7 @@ module.exports = (options = {}) => {
               
 
             }
-            console.log("creating transaction history for existing item")
+           // console.log("creating transaction history for existing item")
             //write transaction
             await transServ.create({
               facility: context.result.facility,
@@ -97,7 +97,7 @@ module.exports = (options = {}) => {
           SKU:null,
           batches:[]
              })
-          console.log("product does not exist, created datapoints")
+       //   console.log("product does not exist, created datapoints")
       // 
       
       //create billing service (first class citizen)

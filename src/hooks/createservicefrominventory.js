@@ -4,7 +4,7 @@
 // eslint-disable-next-line no-unused-vars
 module.exports = (options = {}) => {
   return async context => {
-    console.log(context.result)
+   // console.log(context.result)
     //everything required to create service from inventory was in the inventory object already
 
    

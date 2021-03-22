@@ -42,7 +42,7 @@ module.exports = (options = {}) => {
       //create
       //?? need to check who is
       //if hospital
-      console.log(context.result)
+      //console.log(context.result)
         const obj={
           wallet: context.result.facility,
           name: context.result.toName,
@@ -51,7 +51,7 @@ module.exports = (options = {}) => {
           orgType:"Client", //client,organization
           
         }
-        console.log(obj)
+        //console.log(obj)
       const deposit= await walletServ.create(obj)
       //  console.log(deposit)
       //update wallet

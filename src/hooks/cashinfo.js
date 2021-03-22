@@ -4,7 +4,7 @@
 // eslint-disable-next-line no-unused-vars
 module.exports = (options = {}) => { //injected cash payment information for new client
   return async context => {
-    console.log(context.result)
+   // console.log(context.result)
     const ClientServ=context.app.service('client')
     const result=context.result
     const obj={

@@ -30,7 +30,7 @@ module.exports = (options = {}) => {
         const id =element.billinfo.orderId
 
          
-        console.log(id)
+        //console.log(id)
        /*  const order = */
        await OrderServ.patch(id, {
           fulfilled:"True"
@@ -48,7 +48,7 @@ module.exports = (options = {}) => {
        BillServ.patch(element.billid, {
           'orderInfo.orderObj.fulfilled':"Partly"
         }).then((resp)=>{
-          console.resp
+          // console.resp
         }).catch((err)=>{
           console.log(err)
         })
@@ -56,7 +56,7 @@ module.exports = (options = {}) => {
         const order =await OrderServ.patch(id, {
           fulfilled:"Partly"
         }).then((resp)=>{
-          console.resp
+          //console.resp
         }).catch((err)=>{
           console.log(err)
         })
