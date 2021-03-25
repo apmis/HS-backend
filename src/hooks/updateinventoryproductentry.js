@@ -150,7 +150,7 @@ module.exports = (options = {}) => {
       })
   
             }catch(err){
-            console.log("error from doesnot exist block", err)
+            console.log("error from does not exist block", err)
             }
 
           } 

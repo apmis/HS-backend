@@ -4,7 +4,7 @@
 // eslint-disable-next-line no-unused-vars
 module.exports = (options = {}) => {
    return async context => {
-     console.log(context.result)
+   //  console.log(context.result)
      //let result=context.result||context.result.data
 
     if (!!context.result.data ){

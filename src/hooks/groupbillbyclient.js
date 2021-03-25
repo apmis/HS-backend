@@ -4,7 +4,7 @@
 // eslint-disable-next-line no-unused-vars
 module.exports = (options = {}) => {
   return async context => {
-   //console.log(context.result.data)
+  // console.log(context.result.data)
   
     if (!context.params.query.clientId ){
      // console.log("groupme")
