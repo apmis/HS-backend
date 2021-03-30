@@ -39,6 +39,7 @@ const subwallettransactions = require('./subwallettransactions/subwallettransact
 const invoice = require('./invoice/invoice.service.js');
 const billcreation = require('./billcreation/billcreation.service.js');
 const createbilldirect = require('./createbilldirect/createbilldirect.service.js');
+const labhelper = require('./labhelper/labhelper.service.js');
 //const authMgt = require('./auth-mgt/auth-mgt.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
@@ -84,4 +85,5 @@ module.exports = function (app) {
  app.configure(invoice);
  app.configure(billcreation);
  app.configure(createbilldirect);
+ app.configure(labhelper);
 };
