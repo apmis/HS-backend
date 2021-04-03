@@ -48,6 +48,7 @@ module.exports = function (app) {
       paymentmode:{ type: Schema.Types.Mixed }
     },
     createdBy:{ type: Schema.Types.ObjectId },
+    report_status:{ type: String, default: "Pending", required: true}, //pending, draft, final
     billing_status: { type: String, default: "Unpaid", required: true}, //unpaid,partially paid, fully paid, waived, cancel,suspend
   }, {
     timestamps: true

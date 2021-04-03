@@ -6,6 +6,31 @@ const groupbillbyclient = require('../../hooks/groupbillbyclient');
 
 const updateorderfrompayment = require('../../hooks/updateorderfrompayment');
 
+const {populate} = require('feathers-hooks-common');
+
+const resultSchema = {
+  include:[ {
+    service: 'labresults',
+    nameAs: 'resultDetail',
+    parentField: '_id',
+    childField: 'billId'
+  },
+ /* {
+    service: 'billing',
+    nameAs: 'billingDetails',
+    parentField: 'billingId',
+    childField: '_id'
+  },  */
+    /*{
+    service: 'doctor',
+    nameAs: 'DocDetails',
+    parentField: 'doctor',
+    childField: 'userID'
+  } */
+  ],
+}
+//populate({schema:doctorCitizenSchema})
+
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
@@ -18,7 +43,7 @@ module.exports = {
   },
 
   after: {
-    all: [],
+    all: [populate({schema:resultSchema})],
     find: [groupbillbyclient()],
     get: [],
     create: [createorderbillhelper()],
