@@ -23,6 +23,7 @@ const inventorySchema = {
   ],
 }
 const createservicefrominventory = require('../../hooks/createservicefrominventory');
+const inventorycheck = require('../../hooks/inventorycheck');
 //populate({schema:doctorCitizenSchema})
 
 module.exports = {
@@ -38,7 +39,7 @@ module.exports = {
 
   after: {
     all: [populate({schema:inventorySchema})],
-    find: [],
+    find: [inventorycheck()],
     get: [],
     create: [createservicefrominventory()],
     update: [],

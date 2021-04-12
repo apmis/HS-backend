@@ -15,7 +15,7 @@ module.exports = function (app) {
     maritalstatus: { type: String },
     religion: { type: String },
     phone: { type: String },
-    email: { type: String, unique: true, lowercase: true },
+    email: { type: String, lowercase: true }, //unique: true
     profession: { type: String },
    
     nok_name: { type: String },
