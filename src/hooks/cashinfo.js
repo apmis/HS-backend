@@ -13,7 +13,7 @@ module.exports = (options = {}) => { //injected cash payment information for new
         organizationName:null,
         principalId:"",
         clientId:"",
-        principalName: context.data.firstname +" " + context.data.middlename+ " "+context.data.lastname,
+        principalName: context.data.firstname +" " + context.data.middlename + " "+context.data.lastname,
         plan:"Cash",
         active:true,
         principal:result._id

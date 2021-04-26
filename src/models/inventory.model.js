@@ -22,8 +22,8 @@ module.exports = function (app) {
     stockvalue:{ type: Number},
     category:{ type:String},
     SKU:{ type:String},
-    batches:[{ batchno:{ type:String,},   
-               qtty:{ type:String, }, 
+    batches:[{ batchNo:{ type:String,},   
+               quantity:{ type:String, }, 
                expirydate:{ type:String,}
               }]
   }, {
