@@ -10,6 +10,7 @@ module.exports = function (app) {
    documentdetail: { type:Schema.Types.Mixed },
    documentname:{ type: String },
    documentClassId:{ type: Schema.Types.ObjectId, },
+   documentType:{ type: String },
    createdBy:{ type: Schema.Types.ObjectId, ref:'user' },
    createdByname:{ type: String},
    locationId:{ type: Schema.Types.ObjectId, ref:'location' },
