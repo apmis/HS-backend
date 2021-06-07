@@ -1,12 +1,12 @@
-// client-model.js - A mongoose model
+// foremost-model.js - A mongoose model
 // 
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 module.exports = function (app) {
-  const modelName = 'client';
+  const modelName = 'foremost';
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
-  const schema = new Schema({ //nasomart
+  const schema = new Schema({
     firstname: { type: String },
     middlename: { type: String },
     lastname: { type: String },
@@ -15,7 +15,7 @@ module.exports = function (app) {
     maritalstatus: { type: String },
     religion: { type: String },
     phone: { type: String },
-    email: { type: String, lowercase: true, unique:false }, //unique: true
+    email: { type: String, lowercase: true }, //unique: true
     profession: { type: String },
    
     nok_name: { type: String },
@@ -57,38 +57,6 @@ module.exports = function (app) {
 
       }
     ]
-
-    /* paymentinfo2:{
-      cash:{ type:Boolean, default:true },
-      cashDetails:{
-        cash_balance:{type:Number, default:0}
-      },
-
-      familyCover:{ type:Boolean, default:false },
-      familyDetails:{
-        familyPrincipal:{ type: Schema.Types.ObjectId,ref:'client' },
-        familyName:{ type: Boolean },
-        active:{ type: Boolean }
-      },
-
-      companyCover:{ type:Boolean, default:false },
-      companyDetails:[{
-      companyPrincipal:{ type: Schema.Types.ObjectId,ref:'client' },
-      company:{ type: Schema.Types.ObjectId,ref:'facility' },
-      companyName:{ type: String },
-      companyPlan:{ type: String },
-      active:{ type: Boolean }
-      }],
-
-      hmoCover:{ type:Boolean, default:false },
-      hmoDetails:[{
-      hmoPrincipal:{ type: Schema.Types.ObjectId,ref:'client' },
-      hmo:{ type: Schema.Types.ObjectId,ref:'facility' },
-      hmoName:{ type: String },
-      hmoPlan:{ type: String },
-      active:{ type: Boolean },
-      }] 
-    }*/
   }, {
     timestamps: true
   });

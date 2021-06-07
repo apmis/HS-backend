@@ -1,6 +1,6 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 
-
+const cashinfo = require('../../hooks/cashinfo');
 
 module.exports = {
   before: {
@@ -17,7 +17,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [], //cashinfo()
     update: [],
     patch: [],
     remove: []
