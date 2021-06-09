@@ -9,7 +9,7 @@ module.exports = function (app) {
   const schema = new Schema({
     facility: { type: Schema.Types.ObjectId,  },
     locationId:{ type: Schema.Types.ObjectId, },
-    practionerId: { type: Schema.Types.ObjectId,  },
+    practitionerId: { type: Schema.Types.ObjectId,  },
     clientId: { type: Schema.Types.ObjectId, required: true },
 
     firstname: { type: String },
@@ -25,10 +25,16 @@ module.exports = function (app) {
     start_time: { type: Date,  },
     end_time: { type: Date,  },
     appointment_reason: { type: String },
+    appointmentClass: { type: String },
     //billingservice:{ type: Schema.Types.ObjectId,  }, //need to fix this after billing setup
     appointment_type: { type: String },//lab,patient
     appointment_status:{ type: String }, //pending,started,completed,cancelled, suspended
 
+    practitioner_name:{ type: String },
+    practitioner_profession:{ type: String },
+    practitioner_department:{ type: String },
+    location_name:{ type: String },
+    location_type:{ type: String },
 
     organization_type: { type: String },
     referral: { type: Schema.Types.ObjectId, },
