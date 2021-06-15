@@ -17,7 +17,7 @@ module.exports = (options = {}) => {
         
          el.batches.forEach(batch=>{
           if (new Date(batch.expirydate) <= new Date(today)){
-            console.log("expired batch exist")
+           // console.log("expired batch exist")
             batch.expiry=true
             el.expiry=true
           }

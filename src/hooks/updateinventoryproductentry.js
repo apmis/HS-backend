@@ -2,6 +2,7 @@
 // For more information on hooks see: http://docs.feathersjs.com/api/hooks.html
 
 // eslint-disable-next-line no-unused-vars
+const { NotFound, GeneralError, BadRequest } = require('@feathersjs/errors');
 module.exports = (options = {}) => {
   return async context => {
     const inventServ=context.app.service('inventory')
@@ -19,7 +20,7 @@ module.exports = (options = {}) => {
            facility:context.result.facility
          }
        })
-      // console.log(exist.data.length)
+       console.log(exist.data.length)
       // if it does, update the details basedo n the transaction category
       if (exist.data.length){
          try{
@@ -36,6 +37,7 @@ module.exports = (options = {}) => {
 
             }else{
             //  console.log("debit")
+                if ((exist.data[0].quantity-element.quantity)>=0){
               const cp=exist.data[0].stockvalue/exist.data[0].quantity
               await inventServ.patch(exist.data[0]._id,
                 {
@@ -45,7 +47,9 @@ module.exports = (options = {}) => {
                   //costprice:(exist.data[0].stockvalue+element.amount)/(exist.data[0].quantity+element.quantity)
 
                 })
-              
+                }else{
+                  const existing = new GeneralError(new Error('Inventory insufficient'))
+                }
 
             }
            // console.log("creating transaction history for existing item")
@@ -78,6 +82,8 @@ module.exports = (options = {}) => {
 
       }else{
        // console.log(element)
+
+       if (context.result.transactioncategory==="credit"){
          //if it does not exist in inventory, create new inventory and new billing service
          try{
           const invent= await inventServ.create({
@@ -153,7 +159,12 @@ module.exports = (options = {}) => {
             console.log("error from does not exist block", err)
             }
 
-          } 
+          } else {
+            const existing = new GeneralError(new Error('Does not exist'))
+           // throw Error
+          }
+        } 
+
     });
 
     //console.log(console.result)
