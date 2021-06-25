@@ -44,6 +44,7 @@ const labresults = require('./labresults/labresults.service.js');
 const oldapmispatient = require('./oldapmispatient/oldapmispatient.service.js');
 const oldapmispeople = require('./oldapmispeople/oldapmispeople.service.js');
 const foremost = require('./foremost/foremost.service.js');
+const mpi = require('./mpi/mpi.service.js');
 //const authMgt = require('./auth-mgt/auth-mgt.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
@@ -94,4 +95,5 @@ module.exports = function (app) {
  app.configure(oldapmispatient);
  app.configure(oldapmispeople);
  app.configure(foremost);
+ app.configure(mpi);
 };

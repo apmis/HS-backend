@@ -37,9 +37,17 @@ module.exports = function (app) {
     comorbidities:{ type: String },
     alive:{ type:Boolean, default:true },
     active:{ type:Boolean, default:true },
+    dependent:{ type: String },
 
     facility: { type: Schema.Types.ObjectId, ref:'facility', required:true },
     userId: { type: Schema.Types.ObjectId, ref:'users'  },
+    relatedfacilities:[{
+      facility: { type: Schema.Types.ObjectId, ref:'facility'},
+      specificDetails:{ type: String },
+      clientTags:{ type: String },
+      mrn:{ type: String },
+    }],
+
 
 
     paymentinfo:[

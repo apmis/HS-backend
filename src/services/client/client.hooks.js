@@ -2,6 +2,8 @@ const { authenticate } = require('@feathersjs/authentication').hooks;
 
 const cashinfo = require('../../hooks/cashinfo');
 
+const creatempi = require('../../hooks/creatempi');
+
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
@@ -17,7 +19,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [cashinfo()],
+    create: [cashinfo(), creatempi()],
     update: [],
     patch: [],
     remove: []
