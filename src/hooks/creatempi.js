@@ -14,7 +14,7 @@ module.exports = (options = {}) => {
     }
     await mpiServ.create(newClient)
 
-
+/* 
      const allpatient=await context.app.service('client').find({
       query:{},
       paginate:false
@@ -32,7 +32,7 @@ module.exports = (options = {}) => {
        await mpiServ.create(newPat)
        //update relatedfacilities
 
-    }
+    } */
  
     //console.log(allpatient.length)
     return context;
